@@ -29,7 +29,7 @@ production:
 Now, in your controllers, models, views, helpers, etc., you can query whether a given feature is enabled for a specific page request or not by using code similar to this?
 
 ```ruby
-if softlaunch(:acctsettings)
+if launched? :acctsettings
   ...code for the new page...
 else
   ...code for the old page...
@@ -67,22 +67,22 @@ Soft Launch.
 
 Follow the installation instructions above, then you'll find a config/softlaunch.yml file in your application, it will contain something like this:
 
-  ```yml
-  development:
-    myfeature:
-      name: My New Feature
-      status: enabled
+```yml
+development:
+  myfeature:
+    name: My New Feature
+    status: enabled
 
-  test:
-    myfeature:
-      name: My New Feature
-      status: enabled
+test:
+  myfeature:
+    name: My New Feature
+    status: enabled
 
-  production:
-    myfeature:
-      name: My New Feature
-      status: disabled
-  ```
+production:
+  myfeature:
+    name: My New Feature
+    status: disabled
+```
 
 By default, this feature will be setup to be enabled in development and test, but not production. Let's change the name and identifier of this feature to
 something more meaningful to us:
@@ -109,7 +109,7 @@ Now, let's go to our view template for our home page:
 ```erb
 file: app/views/home/index.html.erb
 ...
-<%if softlaunch :newsfeed%>
+<%if launched? :newsfeed%>
   <h2>Welcome to my New Newsfeed!</h2>
   <@newsfeed.each do |article%>
     ...
@@ -127,7 +127,7 @@ file: app/controllers/home_controllber.rb
 ...
 def index
   ... do other stuff here ...
-  if softlaunch :newsfeed
+  if launched? :newsfeed
     @newsfeed=NewsFeed.most_recent_news
   end
 end
