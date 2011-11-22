@@ -107,6 +107,7 @@ production:
 Now, let's go to our view template for our home page:
 
 app/views/home/index.html.erb:
+
 ```erb
 ...
 <%if softlaunch :newsfeed%>
@@ -122,6 +123,7 @@ app/views/home/index.html.erb:
 
 Since your newsfeed will likely need data from our controller, add it as well:
 app/controllers/home_controllber.rb
+
 ```ruby
 ...
 def index
@@ -140,7 +142,7 @@ content is displayed.
 Let's say you want to see what it looks like now in production.
 Update your config file to show the following:
 
-```ruby
+```yml
 development:
   newsfeed:
     name: Display home page newsfeed
