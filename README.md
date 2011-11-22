@@ -106,24 +106,24 @@ production:
 
 Now, let's go to our view template for our home page:
 
-app/views/home/index.html.erb:
-  ```erb
-  ...
-  <%if softlaunch :newsfeed%>
-    <h2>Welcome to my New Newsfeed!</h2>
-    <@newsfeed.each do |article%>
-      ...
-    <%end%>
-  <%else%>
-    Put whatever I had on the page before the newsfeed was added here.
+```erb
+file: app/views/home/index.html.erb
+...
+<%if softlaunch :newsfeed%>
+  <h2>Welcome to my New Newsfeed!</h2>
+  <@newsfeed.each do |article%>
+    ...
   <%end%>
-  ...
-  ```
+<%else%>
+  Put whatever I had on the page before the newsfeed was added here.
+<%end%>
+...
+```
 
 Since your newsfeed will likely need data from our controller, add it as well:
-app/controllers/home_controllber.rb
 
 ```ruby
+file: app/controllers/home_controllber.rb
 ...
 def index
   ... do other stuff here ...
