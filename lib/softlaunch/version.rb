@@ -1,3 +1,3 @@
 module Softlaunch
-  VERSION = "0.0.1alphs"
+  VERSION = "0.0.1alpha"
 end
