@@ -67,7 +67,7 @@ Soft Launch.
 
 Follow the installation instructions above, then you'll find a config/softlaunch.yml file in your application, it will contain something like this:
 
-```ruby
+```yml
 development:
   myfeature:
     name: My New Feature
@@ -87,7 +87,7 @@ production:
 By default, this feature will be setup to be enabled in development and test, but not production. Let's change the name and identifier of this feature to
 something more meaningful to us:
 
-```ruby
+```yml
 development:
   newsfeed:
     name: Display home page newsfeed
@@ -185,7 +185,7 @@ anyone with the URL will know how to enable the feature (which is why the unique
 At any point in time, you can enable this feature for everybody by changing your config file (and redeploying), changing the
 production section of the config file to show this:
 
-```ruby
+```yml
 production:
   newsfeed:
     name: Display home page newsfeed
@@ -195,7 +195,7 @@ production:
 Or, if you want to disable the feature to everyone (because it wasn't well received or you want to work on it some more),
 you can change it to this:
 
-```ruby
+```yml
 production:
   newsfeed:
     name: Display home page newsfeed
