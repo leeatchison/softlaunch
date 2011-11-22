@@ -67,22 +67,22 @@ Soft Launch.
 
 Follow the installation instructions above, then you'll find a config/softlaunch.yml file in your application, it will contain something like this:
 
-```yml
-development:
-  myfeature:
-    name: My New Feature
-    status: enabled
+  ```yml
+  development:
+    myfeature:
+      name: My New Feature
+      status: enabled
 
-test:
-  myfeature:
-    name: My New Feature
-    status: enabled
+  test:
+    myfeature:
+      name: My New Feature
+      status: enabled
 
-production:
-  myfeature:
-    name: My New Feature
-    status: disabled
-```
+  production:
+    myfeature:
+      name: My New Feature
+      status: disabled
+  ```
 
 By default, this feature will be setup to be enabled in development and test, but not production. Let's change the name and identifier of this feature to
 something more meaningful to us:
