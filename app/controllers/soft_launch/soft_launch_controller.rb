@@ -1,10 +1,11 @@
 class SoftLaunch
   class SoftLaunchController < ApplicationController
+
     def show
-      # render :layout => "soft_launch/application"
       @softlaunch=SoftLaunch.find_by_usercode params[:id]
       render :layout => SoftLaunch.engine_layout
     end
+
     def update
       @softlaunch=SoftLaunch.find_by_usercode params[:id]
       if params[:sl_enable].to_i!=0
@@ -20,5 +21,6 @@ class SoftLaunch
     def soft_launch_controller?
       true
     end
+
   end
 end

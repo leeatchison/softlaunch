@@ -217,3 +217,17 @@ Suggestions for this gem can be sent to me.
 # Testing Soft Launch
 
 Simply run "rake test". The gem uses rspec for all of it's test suites.
+
+# Using Can Can?
+
+If you are using Can Can, and have the following line in your application_controller.rb file:
+
+```ruby
+check_authorization
+```
+
+You should update it to exclude the soft launch controller:
+
+```ruby
+check_authorization :unless => :soft_launch_controller?
+```
