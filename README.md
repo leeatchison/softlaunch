@@ -1,6 +1,6 @@
 # Soft Launch
 
-Soft Launch is a mechanism that allows you to add new features to a website, but limit which of your users has access to them. This allows you to give access to a new feature to a limited set of users,
+Soft Launch is a mechanism that allows you to add new features to a web application, but limit which of your users has access to them. This allows you to give access to a new feature to a limited set of users,
 while at the same time letting them try out the new feature in a full production environment.
 
 You use Soft Launch by defining "features". A feature is a piece of functionality that you want to roll out to a specific subset of individuals. An example feature may be a newly designed
@@ -54,10 +54,10 @@ gem "softlaunch"
 Now, run this command:
 
 ```ruby
-rake softlaunch:setup
+rails generate softlaunch:setup
 ```
 
-Your all set!
+This will create an initializer file and add an entry to your route.rb file.
 
 # Getting Started
 
@@ -137,7 +137,7 @@ end
 Now, when you show this page in development and test mode, you'll see the newsfeed. But when it is displayed in production, the original
 content is displayed.
 
-## Enabling it for a Browser
+## Enabling it for a Specific Person's Browser
 Let's say you want to see what it looks like now in production.
 Update your config file to show the following:
 
@@ -161,14 +161,14 @@ production:
 
 The 'usercode' is a random, unique code assigned to this newsfeed. We used a UUID for this example (sans dashes), but you can
 use any value you like. You want the value to be "hard to guess", as it will be used in the URL that enables your new feature
-for a user.
+for a specific user and their browser.
 
 Now, in production, go to your home page, you'll see the "old" content. You can enable the new content just for you by going to this
 URL:
 
 http://<myapplication>/softlaunch/C04D9454C8EB449C8B4E6A72157B4AA4
 
-On this page, you'll see whether this feature is enabled for your or not, and will be given the option to enable/disable this feature.
+On this page, you'll see whether this feature is enabled for your browser or not, and will be given the option to enable/disable this feature.
 Enable the feature, and go back to your home page.
 
 You will now see that your home page has the new newsfeed.
@@ -178,7 +178,7 @@ Go to a different browser or a different computer and load the home page. You'll
 A cookie has been set in your browser, which is what is used to enable the feature. It is only enabled for you and only with the
 current browser.
 
-You can now given that URL to other people (beta testers, for instance) and let them use the feature. If they have problems with
+You can now give that URL to other people (beta testers, for instance) and let them use the feature. If they have problems with
 it or don't like it, they can always turn it off. Note that you should tell them not to share the URL with other people, as
 anyone with the URL will know how to enable the feature (which is why the unique identifier should be hard to guess).
 
@@ -205,7 +205,7 @@ production:
 When it is disabled, even people with the cookie set will not be able to see the feature.
 
 Once you have finished permanently launching the feature (or permanently deciding not to launch it), you can go and refactor
-your code to remove the "if softlaunch" statements and the unused code, then remove the feature from the softlaunch.yml
+your code to remove the "if launched?" statements and the unused code, then remove the feature from the softlaunch.yml
 file.
 
 # Questions or Problems?
@@ -217,9 +217,3 @@ Suggestions for this gem can be sent to me.
 # Testing Soft Launch
 
 Simply run "rake test". The gem uses rspec for all of it's test suites.
-
-
-
-
-# XXXX
-Talk about using "main_app.xxx_path" on links in the application.html.erb template, so that this template can be used for the engine...
