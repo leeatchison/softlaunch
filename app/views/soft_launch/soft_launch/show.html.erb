@@ -1,0 +1,31 @@
+<h1>Soft Launch: <%=@softlaunch.name%></h1>
+<table class="softlaunchstatus">
+  <tr>
+    <td class="label">Public Status:</td>
+    <td class="value"><%=@softlaunch.status_string%></td>
+  </tr>
+  <tr>
+    <td class="label">This Browser Status:</td>
+    <%if @softlaunch.launched?%>
+      <td class="value">
+        Enabled
+      </td>
+      <td class="value">
+        <%=form_for @softlaunch.usercode,:method=>:put do |f|%>
+          <%=hidden_field_tag :sl_enable,0%>
+          <%=f.submit "Disable"%>
+        <%end%>
+      </td>
+    <%else%>
+      <td class="value">
+        Disabled
+      </td>
+      <td class="value">
+        <%=form_for @softlaunch.usercode,:method=>:put do |f|%>
+          <%=hidden_field_tag :sl_enable,1%>
+          <%=f.submit "Enable"%>
+        <%end%>
+      </td>
+    <%end%>
+  </tr>
+</table>

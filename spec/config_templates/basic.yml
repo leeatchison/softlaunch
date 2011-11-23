@@ -1,0 +1,11 @@
+test:
+  feature1:
+    name: My New Feature 1
+    status: enabled
+  feature2:
+    name: My New Feature 2
+    status: disabled
+  feature3:
+    name: My New Feature 3
+    status: user
+    usercode: thisisasampleusercode

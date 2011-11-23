@@ -1,5 +1,4 @@
 require "softlaunch/version"
-
-module Softlaunch
-  # Your code goes here...
-end
+require "softlaunch/model"
+require "softlaunch/application_controller"
+require "softlaunch/engine"

@@ -217,3 +217,9 @@ Suggestions for this gem can be sent to me.
 # Testing Soft Launch
 
 Simply run "rake test". The gem uses rspec for all of it's test suites.
+
+
+
+
+# XXXX
+Talk about using "main_app.xxx_path" on links in the application.html.erb template, so that this template can be used for the engine...
