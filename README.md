@@ -54,7 +54,7 @@ gem "softlaunch"
 Now, run this command:
 
 ```ruby
-rails generate softlaunch:setup
+rails generate soft_launch:setup
 ```
 
 This will create an initializer file and add an entry to your route.rb file.
