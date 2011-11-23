@@ -44,7 +44,7 @@ of features before making them more globally available to everyone using your ap
 
 # Installation
 
-Soft Launch requires Rails 3.1 or greater.
+Soft Launch requires Rails 3.0 or greater.
 Add this to your Gemfile and run the bundle command:
 
 ```ruby
