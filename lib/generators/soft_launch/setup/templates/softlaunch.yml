@@ -1,0 +1,14 @@
+development:
+  myfeature:
+    name: My New Feature
+    status: enabled
+
+test:
+  myfeature:
+    name: My New Feature
+    status: enabled
+
+production:
+  myfeature:
+    name: My New Feature
+    status: disabled
