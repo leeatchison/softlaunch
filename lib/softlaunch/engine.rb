@@ -1,5 +1,7 @@
 class SoftLaunch
+  
   if defined? Rails
+    
     class Engine < Rails::Engine
       engine_name "soft_launch"
       isolate_namespace SoftLaunch
@@ -12,5 +14,7 @@ class SoftLaunch
         end
       end
     end
+    
   end
+  
 end
