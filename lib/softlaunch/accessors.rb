@@ -20,14 +20,4 @@ class SoftLaunch
     @status==:user
   end
   
-  def status_string
-    case @status
-    when :disabled then "Disabled"
-    when :enabled then "Enabled"
-    when :user then "Per User"
-    else
-      "???#{@status}???"
-    end
-  end
-  
 end
