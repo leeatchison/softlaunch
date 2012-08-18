@@ -1,5 +1,8 @@
 class SoftLaunch
   class SoftLaunchController < ApplicationController
+    if respond_to? :skip_authorization_check
+      skip_authorization_check
+    end
 
     def show
       @softlaunch=SoftLaunch.find_by_usercode params[:id]

@@ -123,7 +123,7 @@ file: app/views/home/index.html.erb
 Since your newsfeed will likely need data from our controller, add it as well:
 
 ```ruby
-file: app/controllers/home_controllber.rb
+file: app/controllers/home_controller.rb
 ...
 def index
   ... do other stuff here ...
@@ -136,6 +136,45 @@ end
 
 Now, when you show this page in development and test mode, you'll see the newsfeed. But when it is displayed in production, the original
 content is displayed.
+
+Alternately, you can check to see if a feature is launched at a controller level using a filter:
+
+```ruby
+file: app/controllers/newsfeed_controller.rb
+...
+check_softlaunched :newsfeed
+...
+def index
+  ...
+end
+```
+
+Or for only a few specific actions:
+
+```ruby
+file: app/controllers/newsfeed_controller.rb
+...
+check_softlaunched :newsfeed, only: [:index,:show]
+...
+def index
+  ...
+end
+```
+
+Or all but a few specific actions:
+
+```ruby
+file: app/controllers/newsfeed_controller.rb
+...
+check_softlaunched :newsfeed, except: [:new,:create]
+...
+def index
+  ...
+end
+```
+
+If an action is called that matches the check_softlaunched such that the identifier specifies a disabled softlaunch, then a
+flash message will be generated and the application will redirect to the root_path URL.
 
 ## Enabling it for a Specific Person's Browser
 Let's say you want to see what it looks like now in production.
