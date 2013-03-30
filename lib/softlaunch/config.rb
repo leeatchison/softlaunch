@@ -24,8 +24,9 @@ class SoftLaunch
         logger.error "No configuration file provided"
         raise InvalidConfiguration
       end
-      @config = YAML::load(raw_config)[ENV["RAILS_ENV"]||"development"]
-      @config
+      raw_hash = YAML::load(raw_config)
+      @config = raw_hash[Rails.env||"none"]
+      @config = raw_hash if @config.nil?
     end
     
   end
